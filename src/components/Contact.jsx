@@ -131,11 +131,13 @@ function Contact() {
             <h3 className="mt-5 font-display text-2xl font-extrabold tracking-tight text-white">
               IONIX SPORTS CENTERS
             </h3>
-            <p className="mt-4 text-white/85">Hindustan Antibiotics, Pimpri</p>
-            <p className="mt-1 text-white/85">Vedant Sports Academy, Nigdi</p>
+            <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/85">
+              486/2760, Shakuntala Niwas, Opp. Mahesh Nagar Datta Temple, Sant
+              Tukaram Nagar, Pimpri, Pune — 411018
+            </p>
 
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Vedant+Sports+Academy+Nigdi+Pune"
+              href="https://www.google.com/maps/search/?api=1&query=Shakuntala%20Niwas%2C%20Opp.%20Mahesh%20Nagar%20Datta%20temple%2C%20Sant%20Tukaram%20Nagar%2C%20Pimpri%2C%20Pune%20411018"
               target="_blank"
               rel="noreferrer"
               className="group mt-7 inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-brand/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/40"

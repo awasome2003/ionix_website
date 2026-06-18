@@ -185,7 +185,9 @@ function Platform() {
           {/* Buttons */}
           <div className="pf2-anim mt-9 flex flex-wrap gap-4">
             <a
-              href="#contact"
+              href="https://chalokhelne.com/l/home"
+              target="_blank"
+              rel="noreferrer"
               className="magnetic group inline-flex items-center gap-2 rounded-lg bg-brand px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-brand/30 transition-shadow hover:shadow-xl hover:shadow-brand/40"
             >
               Book Demo
@@ -194,7 +196,9 @@ function Platform() {
               </svg>
             </a>
             <a
-              href="#contact"
+              href="https://chalokhelne.com/l/home"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center rounded-lg border border-accent/60 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-accent transition-all hover:bg-accent/10"
             >
               Get App

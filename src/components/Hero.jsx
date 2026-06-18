@@ -244,17 +244,10 @@ function Hero({ started = false }) {
             </a>
 
             <a
-              href="#events"
+              href="#contact"
               className="hero-btn inline-flex items-center rounded-lg border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white backdrop-blur transition-all hover:border-white/40 hover:bg-white/10"
             >
-              Book Event
-            </a>
-
-            <a
-              href="#corporate"
-              className="hero-btn inline-flex items-center rounded-lg border border-accent/60 bg-accent/5 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-accent backdrop-blur transition-all hover:bg-accent/15"
-            >
-              Request Corporate Event
+              Join Academy
             </a>
           </div>
         </div>

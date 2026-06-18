@@ -63,7 +63,7 @@ function Navbar() {
             <li key={link.label}>
               <a
                 href={link.href}
-                className={`group relative rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-brand ${
+                className={`group relative rounded-lg px-3 py-2 text-[16px] font-medium transition-colors hover:text-brand ${
                   scrolled ? 'text-[#1b3b6f]' : 'text-white'
                 }`}
               >

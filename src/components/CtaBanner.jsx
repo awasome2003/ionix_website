@@ -36,7 +36,9 @@ function CtaBanner() {
         </div>
 
         <a
-          href="#platform"
+          href="https://chalokhelne.com/l/home"
+          target="_blank"
+          rel="noreferrer"
           className="cta-anim magnetic group inline-flex shrink-0 items-center gap-2.5 rounded-lg bg-brand px-7 py-4 text-sm text-white shadow-lg shadow-brand/30 transition-shadow hover:shadow-xl hover:shadow-brand/40"
         >
           <span className="font-bold uppercase tracking-wide">Explore</span>

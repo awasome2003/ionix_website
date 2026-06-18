@@ -59,6 +59,16 @@
   border: 1.5px solid rgba(242, 101, 34, 0.65);
   transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
 }
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  pointer-events: none;
+  border-radius: 9999px;
+  background: #f26522;
+  will-change: transform;
+}
 .cursor-ring.is-hover {
   height: 60px;
   width: 60px;
@@ -96,6 +106,15 @@
   }
 }
 
+/* Multi-sport accordion — scrollable but no visible scrollbar */
+.sp-accordion {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.sp-accordion::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
 /* 3D tilt cards + cursor-follow glare */
 .tilt {
   transform-style: preserve-3d;
@@ -130,7 +149,8 @@
 }
 @media (pointer: coarse) {
   .cursor-dot,
-  .cursor-ring {
+  .cursor-ring,
+  .cursor-trail {
     display: none;
   }
 }
