@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Saira", "Inter", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  /* Brand palette — from the IONIX design */
+  --color-brand: #f26522;        /* orange — primary CTA / highlights */
+  --color-navy: #0a1428;         /* deep navy — dark sections */
+  --color-accent: #34d399;       /* emerald green — stats / accents */
+  --color-ink: #0f172a;          /* near-black body text */
+  --color-muted: #64748b;        /* secondary text */
+}
+
+/* Smooth GPU-accelerated float for the app mockup */
+@keyframes phoneFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+.phone-float {
+  animation: phoneFloat 4s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-float {
+    animation: none;
+  }
+}
+
+/* Custom cursor — ping-pong ball + trailing ring */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 9999px;
+  will-change: transform;
+}
+.cursor-dot {
+  height: 13px;
+  width: 13px;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #f9a36a 42%, #f26522 95%);
+  box-shadow: 0 0 10px rgba(242, 101, 34, 0.55);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+.cursor-ring {
+  height: 40px;
+  width: 40px;
+  border: 1.5px solid rgba(242, 101, 34, 0.65);
+  transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+}
+.cursor-ring.is-hover {
+  height: 60px;
+  width: 60px;
+  background: rgba(242, 101, 34, 0.12);
+}
+.cursor-dot.is-hover {
+  height: 17px;
+  width: 17px;
+}
+
+/* Vertical auto-scroll gallery columns (alternating direction) */
+@keyframes galUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+@keyframes galDown {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+.gal-track-up {
+  animation: galUp linear infinite;
+}
+.gal-track-down {
+  animation: galDown linear infinite;
+}
+/* hovering a column pauses only that column's track */
+.gal-col:hover .gal-track-up,
+.gal-col:hover .gal-track-down {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gal-track-up,
+  .gal-track-down {
+    animation: none;
+  }
+}
+
+/* 3D tilt cards + cursor-follow glare */
+.tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.tilt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.35),
+    transparent 50%
+  );
+  opacity: 0;
+  mix-blend-mode: overlay;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+.tilt:hover::after {
+  opacity: 1;
+}
+
+/* Hide the native cursor only where the custom one is active */
+@media (pointer: fine) {
+  .has-custom-cursor,
+  .has-custom-cursor * {
+    cursor: none !important;
+  }
+}
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* Lightbox image zoom-in */
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.lightbox-img {
+  animation: lightboxIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Outlined (stroked) heading text */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.55);
+  paint-order: stroke fill;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+  }
+}
