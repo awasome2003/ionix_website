@@ -37,7 +37,7 @@ const FOUNDERS = [
 
 function FounderCard({ f }) {
   return (
-    <article className="founder-card flex flex-col overflow-hidden rounded-3xl bg-white shadow-2xl transition-transform duration-300 hover:-translate-y-1.5 sm:flex-row">
+    <article className="founder-card flex flex-col overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-2xl shadow-black/30 transition-transform duration-300 hover:-translate-y-1.5 sm:flex-row lg:backdrop-blur-xl">
       {/* Photo */}
       <div className="shrink-0 sm:w-52">
         <img
@@ -49,15 +49,15 @@ function FounderCard({ f }) {
 
       {/* Body */}
       <div className="flex flex-1 flex-col p-6 lg:p-7">
-        <h3 className="font-display text-2xl font-bold tracking-tight text-navy">
+        <h3 className="font-display text-2xl font-bold tracking-tight text-white">
           {f.name}
         </h3>
         <p className="mt-1 text-sm font-medium">
           <span className="text-brand">{f.roleAccent}</span>
-          <span className="text-ink/60"> &amp; {f.roleRest}</span>
+          <span className="text-white/60"> &amp; {f.roleRest}</span>
         </p>
 
-        <blockquote className="mt-4 border-l-2 border-accent pl-4 text-sm italic leading-relaxed text-ink/70">
+        <blockquote className="mt-4 border-l-2 border-accent pl-4 text-sm italic leading-relaxed text-white/80">
           {f.quote}
         </blockquote>
 
@@ -81,7 +81,7 @@ function FounderCard({ f }) {
           {f.tags.map((t) => (
             <span
               key={t}
-              className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-ink/60"
+              className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/70"
             >
               {t}
             </span>
@@ -122,7 +122,7 @@ function Founders() {
       id="founders"
       ref={rootRef}
       data-bg="1"
-      className="relative overflow-hidden py-24 backdrop-blur-sm"
+      className="relative overflow-hidden bg-[#000]/50 py-24 lg:backdrop-blur-sm"
     >
       <div className="relative z-10">
         {/* Heading */}

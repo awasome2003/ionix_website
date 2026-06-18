@@ -44,7 +44,7 @@ function Consultation() {
   }, [])
 
   return (
-    <section id="contact" ref={rootRef} data-bg="1" className="py-24 backdrop-blur-sm">
+    <section id="contact" ref={rootRef} data-bg="1" className="bg-[#000]/50 py-24 lg:backdrop-blur-sm">
       {/* Heading */}
       <div className="mx-auto max-w-[1600px] px-5 text-center lg:px-8">
         <p className="cons-anim font-mono text-xs font-bold tracking-[0.35em] text-brand uppercase">

@@ -106,7 +106,7 @@ function Testimonials() {
   }, [])
 
   return (
-    <section id="testimonials" ref={rootRef} data-bg="2" className="bg-black/25 py-24">
+    <section id="testimonials" ref={rootRef} data-bg="2" className="bg-[#000]/50 py-24">
       {/* Heading */}
       <div className="tm-head mx-auto max-w-[1600px] px-5 text-center lg:px-8">
         <p className="font-mono text-xs font-bold tracking-[0.35em] text-brand uppercase">
@@ -141,7 +141,7 @@ function Testimonials() {
 
       {/* Card */}
       <div className="mx-auto mt-12 max-w-4xl px-5">
-        <div className="rounded-2xl border border-white/15 bg-white/10 p-10 shadow-2xl shadow-black/30 backdrop-blur-xl lg:p-14">
+        <div className="rounded-2xl border border-white/15 bg-white/10 p-10 shadow-2xl shadow-black/30 lg:p-14 lg:backdrop-blur-xl">
           <div ref={cardRef}>
             {/* quote mark */}
             <svg viewBox="0 0 24 24" className="mx-auto h-12 w-12 text-accent/40" fill="currentColor">

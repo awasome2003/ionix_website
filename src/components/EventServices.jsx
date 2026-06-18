@@ -117,7 +117,7 @@ function EventServices() {
   }, [])
 
   return (
-    <section id="services" ref={rootRef} data-bg="0" className="py-24 backdrop-blur-md">
+    <section id="services" ref={rootRef} data-bg="0" className="bg-[#000]/50 py-24 lg:backdrop-blur-md">
       <div className="es-head mx-auto max-w-[1600px] px-5 text-center lg:px-8">
         <p className="font-mono text-xs font-bold tracking-[0.35em] text-brand uppercase">
           Event Management

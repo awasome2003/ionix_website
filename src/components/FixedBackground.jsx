@@ -4,12 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-/* Dark cinematic images that swap between reveal sections. */
-const IMAGES = [
-  'https://images.unsplash.com/photo-1534158914592-062992fbe900?q=80&w=1920&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1611251135345-18c56206b863?q=80&w=1920&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=1920&auto=format&fit=crop',
-]
+/* Fixed background image (slowly scales as you scroll). */
+const IMAGES = ['/bg-10.jpeg']
 
 function FixedBackground() {
   const rootRef = useRef(null)
@@ -53,17 +49,20 @@ function FixedBackground() {
         })
       })
 
-      // Subtle parallax scale drift (single layer — never causes double images).
-      gsap.to('.fbg-scale', {
-        scale: 1.12,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: document.documentElement,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 1,
-        },
-      })
+      // Subtle parallax scale drift — desktop only (scrubbing a full-screen
+      // fixed image every frame is too heavy on mobile).
+      if (!window.matchMedia('(max-width: 1024px)').matches) {
+        gsap.to('.fbg-scale', {
+          scale: 1.12,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: document.documentElement,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1,
+          },
+        })
+      }
     }, rootRef)
     return () => ctx.revert()
   }, [])

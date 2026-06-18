@@ -158,7 +158,7 @@ function CoachingCenters() {
   }, [])
 
   return (
-    <section id="centers" ref={rootRef} data-bg="2" className="backdrop-blur-sm py-24">
+    <section id="centers" ref={rootRef} data-bg="2" className="py-24 lg:backdrop-blur-sm bg-[#000]/50">
       <div className="cc-head mx-auto max-w-[1600px] px-5 text-center lg:px-8">
         <p className="font-mono text-xs font-bold tracking-[0.35em] text-brand uppercase">
           Our Facilities

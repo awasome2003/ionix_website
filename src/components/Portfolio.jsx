@@ -186,7 +186,7 @@ function Portfolio() {
   }, [])
 
   return (
-    <section id="events" ref={rootRef} className="bg-[#050505] py-24">
+    <section id="events" ref={rootRef} className="bg-gradient-to-b from-[#15294d] to-[#0b1730] py-24">
       {/* Heading */}
       <div className="pf-head mx-auto max-w-[1600px] px-5 lg:px-8">
         <p className="font-mono text-xs font-bold tracking-[0.35em] text-brand uppercase">

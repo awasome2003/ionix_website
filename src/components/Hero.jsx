@@ -5,12 +5,8 @@ import { SplitText } from 'gsap/SplitText'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
-/* Background carousel images (placeholders — swap for real venue photos) */
-const SLIDES = [
-  'https://images.unsplash.com/photo-1534158914592-062992fbe900?q=80&w=1920&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1611251135345-18c56206b863?q=80&w=1920&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=1920&auto=format&fit=crop',
-]
+/* Background carousel images */
+const SLIDES = ['/bg-7.jpeg', '/bg-2.jpeg', '/bg-3.jpeg']
 
 const STATS = [
   { value: 30, suffix: '+', label: 'Sports Events Managed', color: 'text-accent' },
@@ -23,6 +19,10 @@ const STATS = [
 
 function BackgroundCarousel() {
   const [active, setActive] = useState(0)
+  // Ken Burns is a heavy continuous transform on a large image — skip on mobile.
+  const noKenBurns =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(max-width: 1024px)').matches
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -45,7 +45,9 @@ function BackgroundCarousel() {
             className="h-full w-full object-cover"
             style={{
               animation:
-                i === active ? 'kenburns 7s ease-out forwards' : 'none',
+                i === active && !noKenBurns
+                  ? 'kenburns 7s ease-out forwards'
+                  : 'none',
             }}
           />
         </div>
@@ -136,8 +138,9 @@ function Hero({ started = false }) {
     }
   }, [started])
 
-  /* Scroll parallax (depth on scroll). */
+  /* Scroll parallax (depth on scroll) — desktop only to keep mobile smooth. */
   useLayoutEffect(() => {
+    if (window.matchMedia('(max-width: 1024px)').matches) return
     const ctx = gsap.context(() => {
       gsap.to('.hero-bg', {
         yPercent: 12,

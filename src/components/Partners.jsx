@@ -4,60 +4,27 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-/* Partner logos — placeholder monograms; swap for real logo images later. */
+/* Partner logos (in /public). */
 const PARTNERS = [
-  {
-    name: 'MIT College Pune',
-    category: 'Educational Institution',
-    mark: (
-      <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#1b3b6f] text-white">
-        <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
-          <path d="M12 3 4 7v1h16V7l-8-4Zm-6 7v6H5v2h14v-2h-1v-6h-2v6h-2v-6h-2v6H9v-6H7v6H6v-6Z" />
-        </svg>
-      </span>
-    ),
-  },
-  {
-    name: 'Hindustan Antibiotics',
-    category: 'Corporate Client',
-    mark: (
-      <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#e2e8f0] font-display text-lg font-extrabold text-[#b91c1c]">
-        HA
-      </span>
-    ),
-  },
-  {
-    name: 'Chalo Khelne',
-    category: 'Technology Platform',
-    mark: (
-      <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#0f172a] font-display text-lg font-extrabold tracking-tight">
-        <span className="text-brand">C</span>
-        <span className="-ml-1 text-accent">K</span>
-      </span>
-    ),
-  },
-  {
-    name: 'Vedant Academy',
-    category: 'Training Partner',
-    mark: (
-      <span className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#16a34a] to-[#065f46] text-white">
-        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor">
-          <path d="M12 2C7 2 3 6 3 11c0 6 9 11 9 11s9-5 9-11c0-5-4-9-9-9Zm0 4a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" />
-        </svg>
-      </span>
-    ),
-  },
+  { name: 'MIT College Pune', category: 'Educational Institution', logo: '/MIT.jpg' },
+  { name: 'Hindustan Antibiotics', category: 'Corporate Client', logo: '/HA.jpg' },
+  { name: 'Chalo Khelne', category: 'Technology Platform', logo: '/CK.png' },
+  { name: 'Vedant Academy', category: 'Training Partner', logo: '/Vedant.png' },
 ]
 
 function PartnerItem({ p }) {
   return (
     <div className="group flex w-56 shrink-0 flex-col items-center gap-3 px-6">
-      <div className="grayscale transition duration-300 group-hover:scale-110 group-hover:grayscale-0">
-        {p.mark}
+      <div className="grid h-20 w-20 place-items-center rounded-2xl shadow-lg transition duration-300 group-hover:scale-110">
+        <img
+          src={p.logo}
+          alt={p.name}
+          className="h-full w-full object-contain"
+        />
       </div>
       <div className="text-center">
-        <div className="font-display text-base font-bold text-ink">{p.name}</div>
-        <div className="mt-0.5 text-xs font-medium text-muted">{p.category}</div>
+        <div className="font-display text-base font-bold text-white">{p.name}</div>
+        <div className="mt-0.5 text-xs font-medium text-white/60">{p.category}</div>
       </div>
     </div>
   )
@@ -86,7 +53,7 @@ function Partners() {
   }, [])
 
   return (
-    <section ref={rootRef} data-bg="0" className="py-20 backdrop-blur-sm">
+    <section ref={rootRef} data-bg="0" className="bg-[#000]/50 py-20 lg:backdrop-blur-sm">
       {/* Heading */}
       <div className="partners-head mx-auto max-w-[1600px] px-5 text-center lg:px-8">
         <p className="font-mono text-xs font-bold tracking-[0.35em] text-brand uppercase">

@@ -23,7 +23,7 @@ function CtaBanner() {
   }, [])
 
   return (
-    <section ref={rootRef} data-bg="0" className="py-16 backdrop-blur-sm">
+    <section ref={rootRef} data-bg="0" className="bg-[#000]/50 py-16 lg:backdrop-blur-sm">
       <div className="mx-auto max-w-[1600px] flex flex-col items-start gap-8 px-5 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div>
           <h2 className="cta-anim font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">

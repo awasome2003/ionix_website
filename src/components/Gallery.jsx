@@ -26,6 +26,11 @@ const PHOTOS = [
 
 const COL_COUNT = 6
 
+// Lighter mode on mobile/tablet (skip video autoplay etc. for smoother scroll).
+const LITE =
+  typeof window !== 'undefined' &&
+  window.matchMedia('(max-width: 1024px)').matches
+
 function Tile({ p, onOpen }) {
   return (
     <button
@@ -38,8 +43,9 @@ function Tile({ p, onOpen }) {
           src={p.src}
           muted
           loop
-          autoPlay
+          autoPlay={!LITE}
           playsInline
+          preload={LITE ? 'metadata' : 'auto'}
           className={`w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-110 ${p.ratio}`}
         />
       ) : (
