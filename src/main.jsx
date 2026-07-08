@@ -1,7 +1,12 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
+
+// Code-split the two app surfaces so the marketing site doesn't ship the admin
+// bundle (and vice versa).
+const App = lazy(() => import('./App.jsx'))
+const AdminApp = lazy(() => import('./admin/AdminApp.jsx'))
 
 // Always start at the top on reload (don't restore previous scroll position).
 if ('scrollRestoration' in history) {
@@ -11,6 +16,15 @@ window.scrollTo(0, 0)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <Suspense fallback={null}>
+        <Routes>
+          {/* Marketing landing page */}
+          <Route path="/" element={<App />} />
+          {/* Admin dashboard SPA */}
+          <Route path="/admin/*" element={<AdminApp />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   </StrictMode>,
 )

@@ -1,0 +1,8 @@
+node_modules
+.env
+.env.local
+*.log
+
+# User-uploaded files (gallery images) — keep the folder, ignore contents
+uploads/*
+!uploads/.gitkeep
